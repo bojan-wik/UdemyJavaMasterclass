@@ -29,8 +29,8 @@ public class Animal {
     }
 
     // methods (behaviours) które są obecne u wszystkich zwierząt
-    public void move() {
-        System.out.println("Animal.move() called");
+    public void move(int speed) {
+        System.out.println("Animal.move() called. Animal is moving at " + speed);
     }
 
     public void eat() {

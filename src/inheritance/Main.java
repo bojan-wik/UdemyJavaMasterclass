@@ -8,7 +8,7 @@ public class Main {
 
         Dog dog1 = new Dog("Mops", true, 15, 4, true, "nice fur");
         //System.out.println(dog1.getName());
-        dog1.move();
         dog1.eat();
+        dog1.walk();
     }
 }
