@@ -1,4 +1,4 @@
-package composition;
+package composition.examplePC;
 
 public class Main {
 
@@ -10,9 +10,10 @@ public class Main {
 
         // składam mojego PCta z zakupionych części
         PC myPC = new PC(myMotherboard, myCase, myMonitor);
-        myPC.getTheCase().pressPowerButton();
-        myPC.getTheMotherboard().loadProgram("Windows 10");
-        myPC.getTheMonitor().drawPixelAt(1200, 1500, "blue");
+//        myPC.getTheCase().pressPowerButton();
+//        myPC.getTheMotherboard().loadProgram("Windows 10");
+//        myPC.getTheMonitor().drawPixelAt(1200, 1500, "blue");
         // do metod zdefiniowanych w base-klasach (Case, Motherboard, Monitor) dostaję się pośrednio przez obiekt myPC
+        myPC.powerUp();
     }
 }
