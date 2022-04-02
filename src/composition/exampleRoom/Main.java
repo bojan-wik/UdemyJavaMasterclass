@@ -9,5 +9,6 @@ public class Main {
         Lamp myLamp = new Lamp("IKEA", "240V", 2);
 
         Room myRoom = new Room(myHiFiAudio, myWindow, myLamp);
+        myRoom.spendSomeCoolTime();
     }
 }

@@ -23,6 +23,6 @@ public class HiFiAudio {
     }
 
     public void playMusic(String musicType) {
-        System.out.printf("Playing {} music", musicType).println();
+        System.out.printf("Playing %s music", musicType).println();
     }
 }

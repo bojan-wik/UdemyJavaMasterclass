@@ -23,6 +23,6 @@ public class Window {
     }
 
     public void openWindow(){
-        System.out.println("Window is opened");
+        System.out.println("Opening the window");
     }
 }

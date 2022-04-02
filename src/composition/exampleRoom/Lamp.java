@@ -23,6 +23,6 @@ public class Lamp {
     }
 
     public void turnLampOn() {
-        System.out.println("Lamp is turned on");
+        System.out.println("Turning the lamp on");
     }
 }

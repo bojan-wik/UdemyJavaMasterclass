@@ -11,4 +11,10 @@ public class Room {
         this.theWindow = theWindow;
         this.theLamp = theLamp;
     }
+
+    public void spendSomeCoolTime() {
+        theWindow.openWindow();
+        theLamp.turnLampOn();
+        theHiFiAudio.playMusic("rock'n'roll");
+    }
 }
