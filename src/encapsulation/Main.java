@@ -17,6 +17,6 @@ public class Main {
 //        System.out.printf("Remaining health = %d", player.healthRemaining());
 
         EnhancedPlayer enhancedPlayer = new EnhancedPlayer("Victorious", 50, "Axe");
-        System.out.printf("Initial health is %s", enhancedPlayer.getHitPoints()).println();
+        System.out.printf("Initial health is %s", enhancedPlayer.getHealth()).println();
     }
 }
