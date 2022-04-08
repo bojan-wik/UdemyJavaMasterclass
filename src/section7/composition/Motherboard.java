@@ -1,4 +1,4 @@
-package section7.composition.examplePC;
+package section7.composition;
 
 public class Motherboard {
 

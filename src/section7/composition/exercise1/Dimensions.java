@@ -1,22 +1,22 @@
-package section7.composition.examplePC;
+package section7.composition.exercise1;
 
 public class Dimensions {
 
-    private int width;
     private int height;
+    private int width;
     private int depth;
 
-    public Dimensions(int width, int height, int depth) {
-        this.width = width;
+    public Dimensions(int height, int width, int depth) {
         this.height = height;
+        this.width = width;
         this.depth = depth;
     }
 
-    public int getWidth() {
-        return width;
-    }
     public int getHeight() {
         return height;
+    }
+    public int getWidth() {
+        return width;
     }
     public int getDepth() {
         return depth;

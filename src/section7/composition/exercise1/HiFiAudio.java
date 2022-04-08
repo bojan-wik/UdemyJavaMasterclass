@@ -1,4 +1,4 @@
-package section7.composition.exampleRoom;
+package section7.composition.exercise1;
 
 public class HiFiAudio {
 
