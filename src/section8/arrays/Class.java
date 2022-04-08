@@ -15,10 +15,19 @@ public class Class {
         return values;
     }
 
+    public static double getAverage(int[] values) {
+        double sum = 0;
+        for (int value : values) {
+            sum += value;
+        }
+        return sum / values.length;
+    }
+
     public static void main(String[] args) {
         int[] myIntegers = getIntegers(5);
         for (int i = 0; i < myIntegers.length; i ++) {
             System.out.printf("Element %d, typed value was %d", i, myIntegers[i]).println();
         }
+        System.out.printf("The average is %.2f %n", getAverage(myIntegers)).println();
     }
 }
