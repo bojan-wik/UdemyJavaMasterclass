@@ -1,6 +1,7 @@
 package section8.arrays.exercise1;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
 
@@ -19,17 +20,31 @@ public class Main {
         for (int i = 0; i < array.length; i ++) {
             System.out.printf("index %d, value is %d", i, array[i]).println();
         }
+        System.out.println("-----------------------------------------------");
     }
 
     public static int[] sortIntegers(int[] array) {
-        int[] sortedArray = new int[array.length];
-        // kod sortowania
+        int[] sortedArray = Arrays.copyOf(array, array.length);
+        boolean flag = true;
+        int temp;
+        while (flag) {
+            flag = false;
+            for (int i = 0; i < sortedArray.length - 1; i ++) {
+                if (sortedArray[i] < sortedArray[i+1]) {
+                    temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i+1];
+                    sortedArray[i+1] = temp;
+                    flag = true;
+                }
+            }
+        }
         return sortedArray;
     }
 
     public static void main(String[] args) {
-        int[] myIntegers = getIntegers(5);
+        int[] myIntegers = getIntegers(3);
         printArray(myIntegers);
-        sortIntegers(myIntegers);
+        int[] myIntegersSorted = sortIntegers(myIntegers);
+        printArray(myIntegersSorted);
     }
 }
