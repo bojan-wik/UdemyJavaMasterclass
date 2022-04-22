@@ -7,6 +7,10 @@ class Movie {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String plot() {
         return "No plot here";
     }
@@ -68,7 +72,7 @@ public class Main {
 
     public static Movie randomMovie() {
         int randomNumber = (int)(Math.random() * 5) + 1;
-        System.out.printf("Generated number: %d", randomNumber).println();
+        System.out.printf("\nGenerated number: %d", randomNumber).println();
         switch (randomNumber) {
             case 1:
                 return new Jaws();
@@ -85,5 +89,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        for (int i = 1; i <= 5; i ++) {
+            Movie movie = randomMovie();
+            System.out.printf("Movie #%d: '%s'", i, movie.getName()).println();
+            System.out.printf("Plot: %s", movie.plot()).println();
+        }
     }
 }
