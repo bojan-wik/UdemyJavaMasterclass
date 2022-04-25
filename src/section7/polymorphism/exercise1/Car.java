@@ -38,13 +38,13 @@ class Car {
     }
 
     public String startEngine() {
-        return "Car - starting engine";
+        return String.format("%s -> startEngine()", getClass().getSimpleName());
     }
     public String accelerate() {
-        return "Car - accelerating";
+        return String.format("%s -> accelerate()", getClass().getSimpleName());
     }
     public String brake() {
-        return "Car - braking";
+        return String.format("%s -> brake()", getClass().getSimpleName());
     }
 }
 
@@ -55,15 +55,15 @@ class Skoda extends Car {
 
     @Override
     public String startEngine() {
-        return "Skoda - starting engine";
+        return String.format("%s -> startEngine()", getClass().getSimpleName());
     }
     @Override
     public String accelerate() {
-        return "Skoda - accelerating";
+        return String.format("%s -> accelerate()", getClass().getSimpleName());
     }
     @Override
     public String brake() {
-        return "Skoda - braking";
+        return String.format("%s -> brake()", getClass().getSimpleName());
     }
 }
 
@@ -74,15 +74,15 @@ class AlfaRomeo extends Car {
 
     @Override
     public String startEngine() {
-        return "Alfa Romeo - starting engine";
+        return String.format("%s -> startEngine()", getClass().getSimpleName());
     }
     @Override
     public String accelerate() {
-        return "Alfa Romeo - accelerating";
+        return String.format("%s -> accelerate()", getClass().getSimpleName());
     }
     @Override
     public String brake() {
-        return "Alfa Romeo - braking";
+        return String.format("%s -> brake()", getClass().getSimpleName());
     }
 }
 
@@ -93,41 +93,40 @@ class Opel extends Car {
 
     @Override
     public String startEngine() {
-        return "Opel - starting engine";
+        return String.format("%s -> startEngine()", getClass().getSimpleName());
     }
     @Override
     public String accelerate() {
-        return "Opel - accelerating";
+        return String.format("%s -> accelerate()", getClass().getSimpleName());
     }
     @Override
     public String brake() {
-        return "Opel - braking";
+        return String.format("%s -> brake()", getClass().getSimpleName());
     }
 }
 
 class Main {
 
-    public static Car randomCar() {
-        int randomNumber = (int)(Math.random() * 3) + 1;
-        System.out.printf("\nGenerated number: %d", randomNumber).println();
-        switch (randomNumber) {
-            case 1:
-                return new Skoda();
-            case 2:
-                return new AlfaRomeo();
-            case 3:
-                return new Opel();
-        }
-        return null;
-    }
-
     public static void main(String[] args) {
-        for (int i = 1; i <= 3; i ++) {
-            Car car = randomCar();
-            System.out.printf("Car #%d: '%s'", i, car.getName()).println();
-            System.out.println(car.startEngine());
-            System.out.println(car.accelerate());
-            System.out.println(car.brake());
-        }
+
+        Car car = new Car("Car", 8);
+        System.out.println(car.startEngine());
+        System.out.println(car.accelerate());
+        System.out.println(car.brake());
+
+        Skoda skoda = new Skoda();
+        System.out.println(skoda.startEngine());
+        System.out.println(skoda.accelerate());
+        System.out.println(skoda.brake());
+
+        AlfaRomeo alfaRomeo = new AlfaRomeo();
+        System.out.println(alfaRomeo.startEngine());
+        System.out.println(alfaRomeo.accelerate());
+        System.out.println(alfaRomeo.brake());
+
+        Opel opel = new Opel();
+        System.out.println(opel.startEngine());
+        System.out.println(opel.accelerate());
+        System.out.println(opel.brake());
     }
 }
