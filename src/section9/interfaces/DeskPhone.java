@@ -5,6 +5,10 @@ public class DeskPhone implements Telephone {
     private int myNumber;
     private boolean isRinging;
 
+    public DeskPhone(int myNumber) {
+        this.myNumber = myNumber;
+    }
+
     @Override
     public void powerOn() {
         System.out.printf("No action taken, no power button on %s", getClass().getSimpleName()).println();
