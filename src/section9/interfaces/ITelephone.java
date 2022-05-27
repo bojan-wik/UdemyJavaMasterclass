@@ -1,6 +1,6 @@
 package section9.interfaces;
 
-public interface Telephone {
+public interface ITelephone {
 
     void powerOn();
     void dial(int phoneNumber);
