@@ -3,19 +3,7 @@ package section8.arrayList;
 import java.util.ArrayList;
 
 public class GroceryList {
-
     private static final ArrayList<String> groceryList = new ArrayList<String>();
-
-    public static void main(String[] args) {
-        printGroceryList();
-        addGroceryItem("Pietrucha");
-        addGroceryItem("Marcheweczka");
-        printGroceryList();
-        modifyGroceryItem(0, "Szczypiorek");
-        printGroceryList();
-        removeGroceryItem(0);
-        printGroceryList();
-    }
 
     public static void addGroceryItem(String item) {
         groceryList.add(item);
@@ -36,5 +24,15 @@ public class GroceryList {
         String theItem = groceryList.get(index);
         groceryList.remove(index);
         System.out.printf("\nItem %s has been removed from the grocery list", theItem).println();
+    }
+
+    public String findItem(String searchedItem) {
+//        boolean exists = groceryList.contains(searchedItem);
+        int position = groceryList.indexOf(searchedItem);
+        if (position >= 0) {
+            return groceryList.get(position);
+        } else {
+            return null;
+        }
     }
 }
