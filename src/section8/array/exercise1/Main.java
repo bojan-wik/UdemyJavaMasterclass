@@ -1,4 +1,4 @@
-package section8.arrays.exercise1;
+package section8.array.exercise1;
 
 import java.util.Scanner;
 import java.util.Arrays;

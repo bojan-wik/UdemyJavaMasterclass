@@ -1,4 +1,4 @@
-package section8.arrays;
+package section8.array;
 
 public class Main {
 
