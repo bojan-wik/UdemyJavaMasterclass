@@ -17,8 +17,12 @@ public class Demo {
         addInOrderAZ(placesToVisit, "Sydney");
         addInOrderAZ(placesToVisit, "Melbourn");
         addInOrderAZ(placesToVisit, "Brisbane");
+//        addInOrderAZ(placesToVisit, "Sydney");
+        addInOrderAZ(placesToVisit, "Alice Spring");
+        addInOrderAZ(placesToVisit, "Canberra");
+        addInOrderAZ(placesToVisit, "Adelaide");
         printList(placesToVisit);
-        addInOrderAZ(placesToVisit, "Sydney");
+        visit(placesToVisit);
     }
 
     private static void printList(LinkedList<String> list) {
@@ -35,7 +39,7 @@ public class Demo {
             int comparison = listIterator.next().compareTo(newCity);
             if (comparison == 0) {
                 // equal, do not add
-                System.out.printf("%s is already on the list", newCity);
+                System.out.printf("%s is already on the list", newCity).println();
                 return false;
             } else if (comparison > 0) {
                 // not equal, add before
@@ -53,6 +57,7 @@ public class Demo {
     private static void visit(LinkedList<String> cities) {
         Scanner scanner = new Scanner(System.in);
         boolean quit = false;
+        boolean goingForward = true;
         ListIterator<String> listIterator = cities.listIterator();
 
         if (cities.isEmpty()) {
@@ -68,10 +73,18 @@ public class Demo {
             scanner.nextLine();
             switch (action) {
                 case 0:
+                    // quit
                     System.out.println("Holiday over :(");
                     quit = true;
                     break;
                 case 1:
+                    // go to next city
+                    if (!goingForward) {
+                        if (listIterator.hasNext()) {
+                            listIterator.next();
+                        }
+                        goingForward = true;
+                    }
                     if (listIterator.hasNext()) {
                         System.out.printf("Now visition %s\n", listIterator.next());
                     } else {
@@ -79,6 +92,13 @@ public class Demo {
                     }
                     break;
                 case 2:
+                    // go to previous city
+                    if (goingForward) {
+                        if (listIterator.hasPrevious()) {
+                            listIterator.previous();
+                        }
+                        goingForward = false;
+                    }
                     if (listIterator.hasPrevious()) {
                         System.out.printf("Now visition %s\n", listIterator.previous());
                     } else {
