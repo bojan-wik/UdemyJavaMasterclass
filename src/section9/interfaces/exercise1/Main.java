@@ -30,7 +30,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //code
+        method1(new ToDo());
     }
 
     public static ArrayList<String> readValues() {
@@ -39,7 +39,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean quit = false;
         int index = 0;
-        System.out.println("Choose\n" +
+        System.out.println("\nChoose\n" +
                 "1 to enter a string\n" +
                 "0 to quit");
 
@@ -59,6 +59,16 @@ public class Main {
                     break;
             }
         }
+        System.out.println("===================================");
         return values;
+    }
+
+    // In Main, write a method that takes an object that implements the interface as a parameter and
+    // "saves" the values e.g. calls the method defined in the interface.
+    static void method1(ToDo toDo) {
+        ArrayList<String> toDoList = readValues();
+        toDo.getListOfValuesToBePopulated(toDoList);
+        toDo.populateObjectFieldsWithValues(toDoList);
+        System.out.println(toDo.toString());
     }
 }
