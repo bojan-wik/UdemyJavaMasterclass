@@ -3,17 +3,16 @@ package section9.interfaces.exercise1.solutionfromcourse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player implements ISaveable {
+public class Monster implements ISaveable {
     private String name;
     private int hitPoints;
-    private int strength;
-    private String weapon;
+    private int strenght;
+    private final String weapon = "claws and fangs";
 
-    public Player(String name, int hitPoints, int strength) {
+    public Monster(String name, int hitPoints, int strenght) {
         this.name = name;
         this.hitPoints = hitPoints;
-        this.strength = strength;
-        this.weapon = "Sword";
+        this.strenght = strenght;
     }
 
     public String getName() {
@@ -32,29 +31,25 @@ public class Player implements ISaveable {
         this.hitPoints = hitPoints;
     }
 
-    public int getStrength() {
-        return strength;
+    public int getStrenght() {
+        return strenght;
     }
 
-    public void setStrength(int strength) {
-        this.strength = strength;
+    public void setStrenght(int strenght) {
+        this.strenght = strenght;
     }
 
     public String getWeapon() {
         return weapon;
     }
 
-    public void setWeapon(String weapon) {
-        this.weapon = weapon;
-    }
-
     @Override
     public String toString() {
-        return "\nPlayer{" +
+        return "\nMonster{" +
                 "name='" + name + '\'' +
                 ", hitPoints=" + hitPoints +
-                ", strength=" + strength +
-                ", weapon='" + weapon + '\'' +
+                ", strenght=" + strenght +
+                ", weapons='" + weapon + '\'' +
                 '}';
     }
 
@@ -62,9 +57,8 @@ public class Player implements ISaveable {
     public List<String> write() {
         List<String> values = new ArrayList<String>();
         values.add(0, this.name);
-        values.add(1, new String(String.valueOf(this.hitPoints)));
-        values.add(2, "" + this.strength);
-        values.add(3, this.weapon);
+        values.add(1, "" + this.hitPoints);
+        values.add(2, "" + this.strenght);
         return values;
     }
 
@@ -73,8 +67,7 @@ public class Player implements ISaveable {
         if (savedValues != null && savedValues.size() > 0) {
             this.name = savedValues.get(0);
             this.hitPoints = Integer.parseInt(savedValues.get(1));
-            this.strength = Integer.parseInt(savedValues.get(2));
-            this.weapon = savedValues.get(3);
+            this.strenght = Integer.parseInt(savedValues.get(2));
         }
     }
 }
