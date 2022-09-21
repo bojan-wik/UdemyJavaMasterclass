@@ -11,7 +11,9 @@ public class Main {
 //                "wiktor@boss.com",
 //                123456789);
 
-        BankAccount myBankAccount = new BankAccount();
+//        BankAccount myBankAccount = new BankAccount();
+
+        BankAccount myBankAccount = new BankAccount("Ziutek", "ziutek@wp.pl", 612918050);
 
         System.out.println(myBankAccount.getCustomerName());
 

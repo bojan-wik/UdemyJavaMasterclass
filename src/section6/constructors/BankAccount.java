@@ -22,6 +22,15 @@ public class BankAccount {
         System.out.println("Parametrized constructor called");
     }
 
+    public BankAccount(String customerName, String customerEmail, int customerPhoneNumber) {
+//        this.number = 987654321;
+//        this.balance = 1000.0;
+//        this.customerName = customerName;
+//        this.customerEmail = customerEmail;
+//        this.customerPhoneNumber = customerPhoneNumber;
+        this(987654321, 1000.0, customerName, customerEmail, customerPhoneNumber);
+    }
+
     public boolean depositFunds(double amount) {
         if (amount <= 0) {
             System.out.println("Amount must be > 0");
