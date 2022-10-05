@@ -8,16 +8,16 @@ public class Main {
 
 
 
-        int myIntValue = 10;
-        int anotherIntValue = myIntValue;
-
-        System.out.println("\nmyIntValue = " + myIntValue);
-        System.out.println("anotherIntValue = " + anotherIntValue);
-
-        anotherIntValue ++;
-
-        System.out.println("\nmyIntValue = " + myIntValue);
-        System.out.println("anotherIntValue = " + anotherIntValue);
+//        int myIntValue = 10;
+//        int anotherIntValue = myIntValue;
+//
+//        System.out.println("\nmyIntValue = " + myIntValue);
+//        System.out.println("anotherIntValue = " + anotherIntValue);
+//
+//        anotherIntValue ++;
+//
+//        System.out.println("\nmyIntValue = " + myIntValue);
+//        System.out.println("anotherIntValue = " + anotherIntValue);
 
         int[] myIntArray = new int[5];
         int[] anotherArray = myIntArray;
@@ -27,7 +27,19 @@ public class Main {
 
         anotherArray[0] = 1;
 
-        System.out.println("\nafter change myIntArray = " + Arrays.toString(myIntArray));
-        System.out.println("after change anotherArray = " + Arrays.toString(anotherArray));
+        System.out.println("\nafter 1st change myIntArray = " + Arrays.toString(myIntArray));
+        System.out.println("after 1st change anotherArray = " + Arrays.toString(anotherArray));
+
+        anotherArray = new int[]{4, 5, 6, 7, 8};
+        modifyArray(myIntArray);
+
+        System.out.println("\nafter 2nd change myIntArray = " + Arrays.toString(myIntArray));
+        System.out.println("after 2nd change anotherArray = " + Arrays.toString(anotherArray));
+    }
+
+    private static void modifyArray(int[] array) {
+
+        array[0] = 2;
+        array = new int[]{1, 2, 3, 4, 5};
     }
 }
