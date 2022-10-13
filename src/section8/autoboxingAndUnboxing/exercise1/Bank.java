@@ -20,16 +20,37 @@ public class Bank {
         return branchList;
     }
 
-    public boolean addBranch(String branchName){
+    private Branch findBranch(String branchName) {
+        Branch searchedBranch = null;
         for (Branch branch : branchList) {
             if (branch.getBranchName().equals(branchName)) {
-                System.out.println("Error: The branch '" + branchName + "' has already been added before.");
-                return false;
+                searchedBranch = branch;
             }
         }
-        Branch newBranch = new Branch(branchName);
-        branchList.add(newBranch);
-        System.out.println("The branch '" + branchName + "' added successfully.");
-        return true;
+        return searchedBranch;
     }
+
+    // Add a new branch
+    public boolean addBranch(String branchName){
+        if (findBranch(branchName) == null) {
+            branchList.add(new Branch(branchName));
+            System.out.println("The branch '" + branchName + "' added successfully.");
+            return true;
+        }
+        System.out.println("Error: The branch '" + branchName + "' has already been added before.");
+        return false;
+    }
+
+    // Add a customer to that branch with initial transaction
+    public boolean addCustomerToBranch(String branchName, String customerName, double initTransactionAmount) {
+        Branch existingBranch = findBranch(branchName);
+        if (existingBranch != null) {
+            return existingBranch.addCustomer(customerName, initTransactionAmount);
+        }
+        System.out.println("Error: The branch '" + branchName + "' does not exists.");
+        return false;
+    }
+
+    // Add a transaction for an existing customer for that branch
+    // Show a list of customers for a particular branch and optionally a list of their transactions
 }

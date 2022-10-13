@@ -20,25 +20,31 @@ public class Branch {
         return customerList;
     }
 
-    public boolean addCustomer(String customerName, double initTransactionAmount) {
+    private Customer findCustomer(String customerName) {
+        Customer searchedCustomer = null;
         for (Customer customer : customerList) {
             if (customer.getName().equals(customerName)) {
-                System.out.println("Error: The customer '" + customerName + "' is already in the branch '" + branchName + "'.");
-                return false;
+                searchedCustomer = customer;
             }
         }
-        Customer newCustomer = new Customer(customerName, initTransactionAmount);
-        customerList.add(newCustomer);
-        System.out.println("The customer '" + customerName + "' added successfully to the branch '" + branchName + "'.");
-        return true;
+        return searchedCustomer;
     }
 
-    public boolean addAdditionalTransactionToCustomer(String customerName, double transactionAmount) {
-        for (Customer customer : customerList) {
-            if (customer.getName().equals(customerName)) {
-                customer.addTransaction(transactionAmount);
-                return true;
-            }
+    public boolean addCustomer(String customerName, double initTransactionAmount) {
+        if (findCustomer(customerName) == null) {
+            customerList.add(new Customer(customerName, initTransactionAmount));
+            System.out.println("The customer '" + customerName + "' added successfully to the branch '" + branchName + "'.");
+            return true;
+        }
+        System.out.println("Error: The customer '" + customerName + "' is already in the branch '" + branchName + "'.");
+        return false;
+    }
+
+    public boolean addTransactionToCustomer(String customerName, double transactionAmount) {
+        Customer existingCustomer = findCustomer(customerName);
+        if (existingCustomer != null) {
+            existingCustomer.addTransaction(transactionAmount);
+            return true;
         }
         System.out.println("Error: The customer '" + customerName +"' is not in the branch '" + branchName + "'.");
         return false;
