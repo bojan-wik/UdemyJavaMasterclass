@@ -17,10 +17,6 @@ public class Customer {
         return name;
     }
 
-    public ArrayList<Double> getTransactionList() {
-        return transactionList;
-    }
-
     public void addTransaction(double transactionAmount) {
         transactionList.add(transactionAmount);
     }

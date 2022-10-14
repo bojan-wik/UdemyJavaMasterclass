@@ -44,19 +44,10 @@ public class Branch {
         Customer existingCustomer = findCustomer(customerName);
         if (existingCustomer != null) {
             existingCustomer.addTransaction(transactionAmount);
+            System.out.println("The amount '" + transactionAmount + "' added to the customer '" + customerName + "'");
             return true;
         }
         System.out.println("Error: The customer '" + customerName +"' is not in the branch '" + branchName + "'.");
         return false;
-    }
-
-    public void showListOfCustomers() {
-        System.out.println("\nCustomers list:" +
-                "\n----------------------------");
-        for (int i = 0; i < customerList.size(); i ++) {
-            System.out.println(customerList.get(i).getName() + ": ");
-            customerList.get(i).showListOfTransactions();
-        }
-        System.out.println("----------------------------");
     }
 }

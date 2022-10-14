@@ -29,10 +29,17 @@ public class Main {
 
         pkoBP.addBranch("Oddział Warszawa");
 
-        pkoBP.addCustomerToBranch("Oddział Poznań", "Wiktor", 1000);
-        pkoBP.addBranch("Oddział Poznań");
-        pkoBP.addCustomerToBranch("Oddział Poznań", "Wiktor", 1000);
-        pkoBP.addCustomerToBranch("Oddział Poznań", "Wiktor", 1000);
+//        pkoBP.addCustomerToBranch("Oddział Poznań", "Wiktor", 1000);
+//        pkoBP.addBranch("Oddział Poznań");
+//        pkoBP.addCustomerToBranch("Oddział Poznań", "Wiktor", 1000);
+//        pkoBP.addCustomerToBranch("Oddział Poznań", "Wiktor", 1000);
+
+        pkoBP.addTransactionToCustomerForBranch("Oddział Warszawa", "Szaft", 1000.00);
+        pkoBP.addCustomerToBranch("Oddział Warszawa", "Szaft", 1000.00);
+        pkoBP.addTransactionToCustomerForBranch("Oddział Warszawa", "Szaft", 500.00);
+        pkoBP.addCustomerToBranch("Oddział Warszawa", "Wiktor", 2000.00);
+
+        pkoBP.showListOfCustomersForBranch("Oddział Warszawa", true);
 
 //        pkoBP.addBranch("Oddział Poznań");
 

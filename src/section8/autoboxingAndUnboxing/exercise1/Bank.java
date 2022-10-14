@@ -52,5 +52,30 @@ public class Bank {
     }
 
     // Add a transaction for an existing customer for that branch
-    // Show a list of customers for a particular branch and optionally a list of their transactions
+    public boolean addTransactionToCustomerForBranch(String branchName, String customerName, double transactionAmount) {
+        Branch existingBranch = findBranch(branchName);
+        if (existingBranch != null) {
+            return existingBranch.addTransactionToCustomer(customerName, transactionAmount);
+        }
+        System.out.println("Error: The branch '" + branchName + "' does not exists.");
+        return false;
+    }
+
+    public boolean showListOfCustomersForBranch(String branchName, boolean showTransactions) {
+        Branch existingBranch = findBranch(branchName);
+        if (existingBranch != null) {
+            System.out.println("\nCustomers for branch '" + existingBranch.getBranchName() + "':");
+            ArrayList<Customer> branchCustomers = existingBranch.getCustomerList();
+            for (Customer branchCustomer : branchCustomers) {
+                System.out.println(branchCustomer.getName());
+                if (showTransactions) {
+                    branchCustomer.showListOfTransactions();
+                }
+                System.out.println("----------------------------");
+            }
+            return true;
+        }
+        System.out.println("Error: The branch '" + branchName + "' does not exists.");
+        return false;
+    }
 }
