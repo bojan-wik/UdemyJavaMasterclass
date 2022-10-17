@@ -47,7 +47,7 @@ public class Bank {
         if (existingBranch != null) {
             return existingBranch.addCustomer(customerName, initTransactionAmount);
         }
-        System.out.println("Error: The branch '" + branchName + "' does not exists.");
+        System.out.println("Error: The branch '" + branchName + "' does not exist.");
         return false;
     }
 
@@ -57,7 +57,7 @@ public class Bank {
         if (existingBranch != null) {
             return existingBranch.addTransactionToCustomer(customerName, transactionAmount);
         }
-        System.out.println("Error: The branch '" + branchName + "' does not exists.");
+        System.out.println("Error: The branch '" + branchName + "' does not exist.");
         return false;
     }
 
@@ -75,7 +75,7 @@ public class Bank {
             }
             return true;
         }
-        System.out.println("Error: The branch '" + branchName + "' does not exists.");
+        System.out.println("Error: The branch '" + branchName + "' does not exist.");
         return false;
     }
 }

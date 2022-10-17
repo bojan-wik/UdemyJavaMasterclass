@@ -27,32 +27,22 @@ public class Main {
     public static void main(String[] args) {
         Bank pkoBP = new Bank("PKO BP");
 
-        pkoBP.addBranch("Oddział Warszawa");
+        pkoBP.addBranch("Poznań");
 
-//        pkoBP.addCustomerToBranch("Oddział Poznań", "Wiktor", 1000);
-//        pkoBP.addBranch("Oddział Poznań");
-//        pkoBP.addCustomerToBranch("Oddział Poznań", "Wiktor", 1000);
-//        pkoBP.addCustomerToBranch("Oddział Poznań", "Wiktor", 1000);
+        pkoBP.addCustomerToBranch("Poznań", "Wiktor", 100);
+        pkoBP.addCustomerToBranch("Poznań", "Asia", 150);
 
-        pkoBP.addTransactionToCustomerForBranch("Oddział Warszawa", "Szaft", 1000.00);
-        pkoBP.addCustomerToBranch("Oddział Warszawa", "Szaft", 1000.00);
-        pkoBP.addTransactionToCustomerForBranch("Oddział Warszawa", "Szaft", 500.00);
-        pkoBP.addCustomerToBranch("Oddział Warszawa", "Wiktor", 2000.00);
+        pkoBP.addBranch("Warszawa");
+        pkoBP.addCustomerToBranch("Warszawa", "Szaft", 75);
 
-        pkoBP.showListOfCustomersForBranch("Oddział Warszawa", true);
+        pkoBP.addTransactionToCustomerForBranch("Poznań", "Wiktor", 25);
+        pkoBP.addTransactionToCustomerForBranch("Poznań", "Asia", 500);
 
-//        pkoBP.addBranch("Oddział Poznań");
+        pkoBP.showListOfCustomersForBranch("Poznań", true);
 
-//        pkoBP.getBranchList().get(0).addCustomer("Szaft", 100.00);
-//        pkoBP.getBranchList().get(0).addCustomer("Kaczyński", 50.00);
-//
-//        pkoBP.getBranchList().get(0).addCustomer("Kaczyński", 50.00);
-//        pkoBP.getBranchList().get(1).addCustomer("Kaczyński", 50.00);
-//
-//        pkoBP.getBranchList().get(0).showListOfCustomers();
-//        pkoBP.getBranchList().get(0).addTransactionToCustomer("Szaft", 200.00);
-//        pkoBP.getBranchList().get(0).showListOfCustomers();
-//
-//        pkoBP.getBranchList().get(0).addTransactionToCustomer("Customer X", 100.00);
+        pkoBP.addCustomerToBranch("Wrocław", "Pucek", 1000);
+        pkoBP.addBranch("Poznań");
+        pkoBP.addTransactionToCustomerForBranch("Poznań", "Mikaz", 250);
+        pkoBP.addCustomerToBranch("Poznań", "Wiktor", 500000);
     }
 }
