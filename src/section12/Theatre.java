@@ -3,16 +3,34 @@ package section12;
 import java.util.*;
 
 public class Theatre {
+
     private final String theatreName;
-    public List<Seat> seats = new ArrayList<>();
+    private List<Seat> seats = new ArrayList<>();
+
+    static final Comparator<Seat> PRICE_ORDER = new Comparator<Seat>() {
+        @Override
+        public int compare(Seat seat1, Seat seat2) {
+            if (seat1.getPrice() < seat2.getPrice()) {
+                return -1;
+            } else if (seat1.getPrice() > seat2.getPrice()) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    };
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
 
         int lastRow = 'A' + (numRows - 1);
         for (char row = 'A'; row <= lastRow; row ++) {
+            double price = 12.00;
+            if (row <= 'B') {
+                price = 14.00;
+            }
             for (int seatNum = 1; seatNum <= seatsPerRow; seatNum ++) {
-                Seat seat = new Seat(row + String.format("%02d", seatNum));
+                Seat seat = new Seat(row + String.format("%02d", seatNum), price);
                 seats.add(seat);
             }
         }
@@ -22,9 +40,13 @@ public class Theatre {
         return theatreName;
     }
 
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
     public boolean reserveSeat(String seatNumber) {
         // BINARY SEARCH - bardziej wydajne w tym przypadku (posortowana lista)
-        Seat requestedSeat = new Seat(seatNumber);
+        Seat requestedSeat = new Seat(seatNumber, 0);
         int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
         if (foundSeat >= 0) {
             return seats.get(foundSeat).reserve();
@@ -49,30 +71,28 @@ public class Theatre {
 //        }
     }
 
-    // for testing
-    public void getSeats() {
-        System.out.println("==============================");
-        for (Seat seat : seats) {
-            System.out.println(seat.getSeatNumber());
-        }
-        System.out.println("==============================");
-    }
-
     public class Seat implements Comparable<Seat> {
+
         private final String seatNumber;
+        private double price;
         private boolean reserved = false;
 
-        public Seat(String seatNumber) {
+        public Seat(String seatNumber, double price) {
             this.seatNumber = seatNumber;
+            this.price = price;
+        }
+
+        String getSeatNumber() {
+            return seatNumber;
+        }
+
+        public double getPrice() {
+            return price;
         }
 
         @Override
         public int compareTo(Seat seat) {
             return this.seatNumber.compareToIgnoreCase(seat.getSeatNumber());
-        }
-
-        String getSeatNumber() {
-            return seatNumber;
         }
 
         public boolean reserve() {

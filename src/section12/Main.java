@@ -7,16 +7,16 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Theatre theatre = new Theatre("Teatr muzyczny", 2, 3);
+        Theatre theatre = new Theatre("Teatr muzyczny", 3, 3);
         System.out.println("theatre.seats");
-        printList(theatre.seats);
+        printList(theatre.getSeats());
 //        theatre.getSeats();
 //        theatre.reserveSeat("A02");
 //        theatre.reserveSeat("B01");
 //        theatre.reserveSeat("C03");
 //        theatre.reserveSeat("A02");
 
-        List<Theatre.Seat> seatsCopy = new ArrayList<>(theatre.seats);
+        List<Theatre.Seat> seatsCopy = new ArrayList<>(theatre.getSeats());
         System.out.println("seats.copy");
         printList(seatsCopy);
 
@@ -24,20 +24,20 @@ public class Main {
 //        seatsCopy.get(1).reserve();
 
 //        Collections.reverse(theatre.seats);
-        Collections.shuffle(theatre.seats);
+        Collections.shuffle(theatre.getSeats());
         System.out.println("theatre.seats - shuffle");
-        printList(theatre.seats);
+        printList(theatre.getSeats());
         System.out.println("seatsCopy");
         printList(seatsCopy);
 
-        Theatre.Seat minSeat = Collections.min(theatre.seats);
-        Theatre.Seat maxSeat = Collections.max(theatre.seats);
+        Theatre.Seat minSeat = Collections.min(theatre.getSeats());
+        Theatre.Seat maxSeat = Collections.max(theatre.getSeats());
         System.out.printf("theatre.seats Min seat number is %s", minSeat.getSeatNumber()).println();
         System.out.printf("theatre.seats Max seat number is %s", maxSeat.getSeatNumber()).println();
 
-        Collections.sort(theatre.seats);
+        Collections.sort(theatre.getSeats());
         System.out.println("theatre.seats - sort");
-        printList(theatre.seats);
+        printList(theatre.getSeats());
     }
 
     public static void printList (List<Theatre.Seat> list) {
