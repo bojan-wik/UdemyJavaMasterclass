@@ -35,5 +35,27 @@ public class Main {
         for (Employee employee : employees) {
             System.out.println(employee.getName());
         }
+
+        //
+
+//        String upperAndConcatEmployeeName = doStringStuff(new UpperConcat() {
+//            @Override
+//            public String upperAndConcat(String string1, String string2) {
+//                return string1.toUpperCase() + string2.toUpperCase();
+//            }
+//        },
+//        employees.get(0).getName(), employees.get(3).getName());
+
+        //
+
+        UpperConcat upperConcat = (string1, string2) -> string1.toUpperCase() + string2.toUpperCase();
+        String upperAndConcatEmployeeName = doStringStuff(upperConcat,
+                employees.get(0).getName(), employees.get(3).getName());
+
+        System.out.println(upperAndConcatEmployeeName);
+    }
+
+    public final static String doStringStuff(UpperConcat uc, String string1, String string2) {
+        return uc.upperAndConcat(string1, string2);
     }
 }
