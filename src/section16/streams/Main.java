@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -31,9 +32,22 @@ public class Main {
 
         // WITH STREAMS
 
-        someBingoNumbers.stream()
-                .filter(number -> number.toUpperCase().startsWith("G"))
-                .sorted()
-                .forEach(number -> System.out.println(number));
+//        someBingoNumbers.stream()
+//                .filter(number -> number.toUpperCase().startsWith("G"))
+//                .sorted()
+//                .forEach(number -> System.out.println(number));
+
+        //
+
+        Stream<String> ioNUmberStream = Stream.of("I26", "I17", "I29", "071");
+        Stream<String> inNumberStream = Stream.of("N40", "N36", "I26", "I17", "I29", "071");
+
+        Stream<String> concatStream = Stream.concat(ioNUmberStream, inNumberStream);
+        System.out.println(concatStream.distinct().peek(System.out::println).count());
+
+        System.out.println(concatStream
+                .distinct()
+                .peek(System.out::println)
+                .count());
     }
 }
