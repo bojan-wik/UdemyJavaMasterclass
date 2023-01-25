@@ -1,5 +1,7 @@
 package section14.inputOutput;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,6 +10,31 @@ import java.util.Set;
 public class Locations implements Map<Integer, Location> {
 
     private static Map<Integer, Location> locations = new HashMap<>();
+
+    public static void main(String[] args) throws IOException {
+        // Z UŻYCIEM BLOKU TRY-WITH-RESOURCES
+        try (FileWriter locationsFile = new FileWriter("locations.txt")) {
+            for (Location location : locations.values()) {
+                locationsFile.write(location.getLocationID() + ", " + location.getDescription() + "\n");
+            }
+        }
+
+        // BEZ UŻYCIA BLOKU TRY-WITH-RESOURCES
+//        FileWriter locationsFile = null;
+//        try {
+//            locationsFile = new FileWriter("locations.txt");
+//
+//            for (Location location : locations.values()) {
+//                locationsFile.write(location.getLocationID() + ", " + location.getDescription() + "\n");
+//            }
+//        } finally {
+//            System.out.println("In finally block");
+//            if (locationsFile != null) {
+//                locationsFile.close();
+//                System.out.println("File closed");
+//            }
+//        }
+    }
 
     static {
         Map<String, Integer> tempExit;
